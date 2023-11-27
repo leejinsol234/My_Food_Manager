@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{admin/layouts/main}">
+<section layout:fragment="content">
+    <h1>설문지 수정</h1>
+    <form name="frmSave" method="post" th:action="@{/admin/survey/save}" autocomplete="off" th:object="${surveyForm}">
+        <input type="hidden" name="mode" value="edit">
+        <input type="hidden" name="seq" th:field="*{seq}">
+        <th:block th:replace="~{admin/survey/_form::common}"></th:block>
+        <div class="btns">
+            <button type="reset">다시입력</button>
+            <button type="submit">수정하기</button>
+        </div>
+    </form>
+</section>
+</html>

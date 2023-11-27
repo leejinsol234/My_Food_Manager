@@ -7,7 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-@RestControllerAdvice("org.koreait.restcontrollers")
+@RestControllerAdvice("org.myfm.team.restcontrollers")
 public class CommonRestController {
 
     @ExceptionHandler(Exception.class)

@@ -67,9 +67,6 @@ public class SecurityConfig {
                 String URI = req.getRequestURI();
                 if (URI.indexOf("/admin") != -1) { // 관리자 페이지 - 401 응답 코드
                     resp.sendError(HttpServletResponse.SC_UNAUTHORIZED, "NOT AUTHORIZED");
-                } else { // 회원전용 페이지(예 - /mypage ) -> 로그인 페이지 이동
-                    String url = req.getContextPath() + "/member/login";
-                    resp.sendRedirect(url);
                 }
            });
         });

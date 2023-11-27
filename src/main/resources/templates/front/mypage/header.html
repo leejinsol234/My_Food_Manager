@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://wwww.thymeleaf.org"
+    xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <header th:fragment="common">
+        <section class="center">
+            <a th:href="@{/}">로고</a>
+        </section>
+        <th:block sec:authorize="isAuthenticated()">
+            <a th:href="@{/member/logout}" class="sbtn blue" th:text="#{로그아웃}"></a>
+        </th:block>
+    </header>
+</html>

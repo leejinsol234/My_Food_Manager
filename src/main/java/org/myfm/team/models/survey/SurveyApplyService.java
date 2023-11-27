@@ -7,8 +7,10 @@ import lombok.RequiredArgsConstructor;
 import org.myfm.team.commons.MemberUtil;
 import org.myfm.team.commons.constants.Ingredient;
 import org.myfm.team.commons.exceptions.AlertException;
+import org.myfm.team.entities.Result;
 import org.myfm.team.entities.Survey;
 import org.myfm.team.entities.SurveyItem;
+import org.myfm.team.repositories.ResultRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -21,6 +23,7 @@ public class SurveyApplyService {
 
     private final SurveyInfoService infoService;
 
+    private final ResultRepository resultRepository;
 
     private final MemberUtil memberUtil;
 
@@ -47,7 +50,28 @@ public class SurveyApplyService {
         ObjectMapper om = new ObjectMapper();
         om.registerModule(new JavaTimeModule());
 
+        try {
+            String json = om.writeValueAsString(survey);
+            Result result = Result.builder()
+                    .survey(json)
+                    .ca(checkNull(ratio.get("CA"), 0))
+                    .fe(checkNull(ratio.get("FE"), 0))
+                    .mg(checkNull(ratio.get("MG"), 0))
+                    .va(checkNull(ratio.get("VA"), 0))
+                    .vb1(checkNull(ratio.get("VB1"), 0))
+                    .vb2(checkNull(ratio.get("VB2"), 0))
+                    .vc(checkNull(ratio.get("VC"), 0))
+                    .zn(checkNull(ratio.get("ZN"), 0))
+                    .member(memberUtil.getMember())
+                    .build();
 
+            resultRepository.saveAndFlush(result);
+
+            return result.getSeq();
+
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
         return null;
     }
 

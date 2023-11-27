@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{front/layouts/mypage}">
+<section layout:fragment="content">
+    <h1>회원정보수정</h1>
+
+    <th:block th:replace="~{admin/commons/_message::message}"></th:block>
+
+    <form name="frmSave" method="post" th:action="@{/mypage}" autocomplete="off">
+        <table class="table-cols">
+            <tr>
+                <th>이메일</th>
+                <td>
+                    <input type="email" name="email" disabled>
+                </td>
+            </tr>
+            <tr>
+                <th>비밀번호</th>
+                <td>
+                    <input type="password" name="password">
+                </td>
+            </tr>
+            <tr>
+                <th>비밀번호확인</th>
+                <td>
+                    <input type="password" name="confirmPassword">
+                </td>
+            </tr>
+            <tr>
+                <th>회원명</th>
+                <td>
+                    <input type="text" name="userNm">
+                </td>
+            </tr>
+            <tr>
+                <th>휴대전화번호</th>
+                <td>
+                    <input type="text" name="mobile">
+                </td>
+            </tr>
+        </table>
+        <div class="btns">
+            <button type="reset">다시입력</button>
+            <button type="submit">저장하기</button>
+        </div>
+    </form>
+</section>
+</html>

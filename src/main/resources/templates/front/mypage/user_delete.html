@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{front/layouts/mypage}">
+<section layout:fragment="content">
+    <h1>회원탈퇴</h1>
+
+    <th:block th:replace="~{admin/commons/_message::message}"></th:block>
+
+    <form name="frmSave" method="get" th:action="@{/}" autocomplete="off">
+        <div class="btns">
+            <button type="submit">탈퇴하기</button>
+        </div>
+    </form>
+</section>
+</html>

@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 import org.myfm.team.commons.ScriptExceptionProcess;
 import org.myfm.team.commons.Utils;
 import org.myfm.team.entities.Survey;
+import org.myfm.team.models.survey.ResultInfoService;
 import org.myfm.team.models.survey.SurveyApplyService;
 import org.myfm.team.models.survey.SurveyInfoService;
 import org.springframework.stereotype.Controller;
@@ -24,6 +25,7 @@ public class SurveyController implements ScriptExceptionProcess {
 
     private final SurveyApplyService applyService;
 
+    private final ResultInfoService resultInfoService;
 
     private final HttpServletRequest request;
 
@@ -48,7 +50,19 @@ public class SurveyController implements ScriptExceptionProcess {
         return "common/_execute_script";
     }
 
+    @GetMapping("/result/{seq}")
+    public String result(@PathVariable Long seq, Model model) {
+        commonProcess("result", model);
 
+        Map<String, String[]> data = resultInfoService.getResult(seq);
+        String[] ingredients = data.keySet().toArray(String[]::new);
+
+        model.addAttribute("data", data);
+        model.addAttribute("ingredients", ingredients);
+
+        return utils.tpl("survey/result");
+
+    }
 
     private void commonProcess(String mode, Model model) {
         String pageTitle = "설문지 작성";

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{front/layouts/mypage}">
+<section layout:fragment="content">
+    <h1>설문 결과 목록</h1>
+
+    <form name="frmList" method="post" th:action="@{/mypage}" target="ifrmProcess">
+        <table class="table-rows">
+            <thead>
+            <tr>
+                <th width="40">
+                    <input type="checkbox" class="checkall" data-target-name="seq" id="checkall">
+                    <label for="checkall"></label>
+                </th>
+                <th>회차</th>
+                <th width="150">TEST일자</th>
+                <th width="220">결과조회</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="item, status : ${items}" th:object="${item}">
+                <td>
+                    <input type="checkbox" name="seq" th:value="*{seq}" th:id="${'id_' + status.index}">
+                    <label th:for="${'id_' + status.index}"></label>
+                </td>
+                <td th:text="*{subject}"></td>
+                <td align="center">
+                    <th:block th:if="*{show}">공개</th:block>
+                    <th:block th:unless="*{show}">비공개</th:block>
+                </td>
+                <td>
+                    <a th:href="@{/admin/survey/edit/{seq}(seq=*{seq})}" class="sbtn">수정하기</a>
+                    <a th:href="@{/survey/{seq}(seq=*{seq})}" target="_blank" class="sbtn blue">상세보기</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <div class="table-action">
+            <button type="submit" class="sbtn" onclick="return confirm('정말 삭제하시겠습니까?');">선택 설문지 삭제하기</button>
+        </div>
+    </form>
+
+    <!--<th:block th:replace="~{common/_pagination::pagination}"></th:block>--> <!--페이징 보류-->
+</section>
+</html>

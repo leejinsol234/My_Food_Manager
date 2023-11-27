@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 import org.myfm.team.commons.ListData;
 import org.myfm.team.commons.Pagination;
 import org.myfm.team.commons.Utils;
+import org.myfm.team.controllers.admins.dtos.SurveyForm;
 import org.myfm.team.controllers.surveys.SearchSurvey;
 import org.myfm.team.entities.Survey;
 import org.myfm.team.entities.SurveyItem;
@@ -47,6 +48,30 @@ public class SurveyInfoService {
         return survey;
     }
 
+    /**
+     * 설문지 단일 조회 후 SurveyForm 커맨드 객체로 변환
+     *
+     * @param seq
+     * @return
+     */
+    public SurveyForm getForm(Long seq) {
+        Survey survey = repository.findById(seq).orElseThrow(SurveyNotFoundException::new);
+
+        List<SurveyItem> _items = survey.getItems();
+        Map<String, List<SurveyItem>> items =  _items == null ? null : _items.stream().collect(Collectors.groupingBy(SurveyItem::getIngredient));
+        List<String> ingredients = _items.stream().map(SurveyItem::getIngredient).distinct().toList();
+
+        SurveyForm form = SurveyForm.builder()
+                .seq(survey.getSeq())
+                .mode("edit")
+                .subject(survey.getSubject())
+                .show(survey.isShow())
+                .items(items)
+                .ingredients(ingredients)
+                .build();
+
+        return form;
+    }
 
 
     /**

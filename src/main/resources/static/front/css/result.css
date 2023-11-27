@@ -1,0 +1,15 @@
+* {
+  box-sizing: border-box;
+  font-family: Tahoma;
+  margin: 0;
+  padding: 0;
+  }
+ul, ol, li { list-style: none; margin:0; padding:0;}
+h1 { text-align: center;}
+
+table,tr,th { border: 1px solid #000; margin: 0 auto; border-collapse : collapse;}
+thead { height: 30px;}
+tbody { }
+.ingr_name { width: 200px; word-break: break-all; text-align: center;}
+.recc_food { width: 500px; word-break: break-all; padding-left: 10px; height: 300px;}
+

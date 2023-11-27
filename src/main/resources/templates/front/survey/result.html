@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{front/layouts/result}">
+
+<main layout:fragment="content">
+    <h1>결과확인</h1>
+
+    <div sec:authorize="isAuthenticated()">
+        <span th:text="${session.member.userNm}"></span>님의 영양소 분석 결과
+    </div>
+    <table>
+        <thead>
+        <tr>
+            <th>부족영양소</th>
+            <th>추천음식</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr th:if="${ingredients != null}" th:each="ingredient : ${ingredients}">
+                <td class="ingr_name" th:text="${@utils.ingredientTxt(ingredient)}"></td>
+                <td class="recc_food">
+                    <ul>
+                        <li th:each="foodNm : ${data.get(ingredient)}" th:text="${foodNm}"></li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</main>
+</html>

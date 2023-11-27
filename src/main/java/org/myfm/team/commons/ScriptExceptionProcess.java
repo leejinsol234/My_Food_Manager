@@ -1,8 +1,8 @@
 package org.myfm.team.commons;
 
 import jakarta.servlet.http.HttpServletResponse;
-import org.myfm.commons.exceptions.AlertBackException;
-import org.myfm.commons.exceptions.AlertException;
+import org.myfm.team.commons.exceptions.AlertBackException;
+import org.myfm.team.commons.exceptions.AlertException;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 

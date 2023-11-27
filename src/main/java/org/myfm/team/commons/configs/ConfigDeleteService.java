@@ -1,8 +1,8 @@
 package org.myfm.team.commons.configs;
 
 import lombok.RequiredArgsConstructor;
-import org.myfm.entities.Configs;
-import org.myfm.repositories.ConfigsRepository;
+import org.myfm.team.entities.Configs;
+import org.myfm.team.repositories.ConfigsRepository;
 import org.springframework.stereotype.Service;
 
 @Service

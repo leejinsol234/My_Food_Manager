@@ -1,6 +1,6 @@
 package org.myfm.team.commons.exceptions;
 
-import org.myfm.commons.Utils;
+import org.myfm.team.commons.Utils;
 import org.springframework.http.HttpStatus;
 
 /**

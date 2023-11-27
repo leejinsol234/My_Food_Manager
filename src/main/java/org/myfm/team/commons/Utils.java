@@ -3,7 +3,7 @@ package org.myfm.team.commons;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
-import org.myfm.commons.constants.Ingredient;
+import org.myfm.team.commons.constants.Ingredient;
 import org.springframework.stereotype.Component;
 
 import java.util.Objects;

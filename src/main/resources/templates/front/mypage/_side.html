@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<aside th:fragment="menu">
+    <ul>
+        <li>
+            <a th:href="@{/mypage/user_update}">
+                <i class="xi-users-o"></i>
+                회원 수정
+            </a>
+
+        </li>
+        <li>
+            <a th:href="@{/mypage/result_list}">
+                <i class="xi-list-number"></i>
+                TEST 결과 조회
+            </a>
+        </li>
+        <li>
+            <a th:href="@{/mypage/user_delete}">
+                <i class="xi-users-o"></i>
+                회원 탈퇴
+            </a>
+        </li>
+    </ul>
+</aside>
+</html>

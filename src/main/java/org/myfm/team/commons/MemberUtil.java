@@ -2,8 +2,8 @@ package org.myfm.team.commons;
 
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
-import org.myfm.commons.constants.MemberType;
-import org.myfm.entities.Member;
+import org.myfm.team.commons.constants.MemberType;
+import org.myfm.team.entities.Member;
 import org.springframework.stereotype.Component;
 
 @Component

@@ -4,8 +4,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
-import org.myfm.entities.Configs;
-import org.myfm.repositories.ConfigsRepository;
+import org.myfm.team.entities.Configs;
+import org.myfm.team.repositories.ConfigsRepository;
 import org.springframework.stereotype.Service;
 
 @Service

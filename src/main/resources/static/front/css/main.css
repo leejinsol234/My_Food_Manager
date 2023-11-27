@@ -8,7 +8,7 @@ a { text-decoration: none; }
 body { margin: 0; }
 img { border: 0; }
 
-
+h1 { text-align : center; }
 .main_page .row { display: flex; background: #fff; margin: 0 auto !important; padding: 50px; }
 .main_page .row > .column { width: 0; flex-grow: 1; }
 .main_page .row > .column + .column { margin-left: 50px; }
@@ -46,3 +46,5 @@ flex-direction: column; align-items: center; justify-content: center; }
 .main_page2 .column .btn_grp { width: 300px; height: 150px; padding: 0 10px; background-color: #86bd3e; border: 1px solid #86bd3e; border-radius: 3px; display: inline-block; margin: 15px; line-height: 43px; text-align: center; line-height: 150px; font-size: 3rem;}
 
 .main_page2 .column .btn_grp_survey{ width: 300px; height: 150px; padding: 0 10px; background-color: #B2CCFF; border: 1px solid #B2CCFF; border-radius: 3px; display: inline-block; margin: 15px; line-height: 43px; text-align: center; line-height: 150px; font-size: 3rem; }
+
+

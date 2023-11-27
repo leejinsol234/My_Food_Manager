@@ -10,15 +10,9 @@
 
 
 
-.join_page .row { display: flex; background: #fff; margin: 0 auto !important; padding: 50px; }
-.join_page .row > .column { width: 0; flex-grow: 1; }
-.join_page .row > .column + .column { margin-left: 50px; }
-.join_page .row > .column:first-of-type img { display: block; width: 100%; }
-
-.join_page .row > .column:last-of-type { display: flex; align-items: center; justify-content: center; }
-
-
-.join_page .column .btn { width: 150px; height: 45px; padding: 0 10px; background-color: #86bd3e; border: 1px solid #86bd3e; border-radius: 3px; display: inline-block; margin: 0; line-height: 43px; text-align: center; }
+.join_page_inside { width : 80%; height: 80%;}
+.join_page { display: flex; justify-content: center;}
+.join_page .rows { display: flex; background: #EAEAEA; margin: 0 auto !important; padding: 30px; }
 
 /** 기본 스타일 - 입력 */
 input[type='text'],
@@ -30,3 +24,12 @@ textarea { border: 1px solid #d5d5d5; width: 100%; min-height: 150px; padding: 1
 select { border: 1px solid #d5d5d5; min-width: 150px; height: 45px; }
 .input_grp { display: flex; align-items:center; }
 .input_grp > * { margin-right: 5px; }
+
+h1 { text-align : center; }
+
+.joinButton {
+width: 150px; height: 45px; padding: 0 10px; background-color: #fff; border: 1px solid #86bd3e; border-radius: 3px; display: inline-block; margin: 0; line-height: 43px; text-align: center; }
+
+.resetButton { width: 150px; height: 45px; padding: 0 10px; background-color: #fff; border: 1px solid #86bd3e; border-radius: 3px; display: inline-block; margin: 0; line-height: 43px; text-align: center;
+}
+

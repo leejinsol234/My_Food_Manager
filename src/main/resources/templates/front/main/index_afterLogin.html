@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{front/layouts/main}">
+<section layout:fragment="content">
+    <body>
+    <div class="row">
+        <div class="column" style="background-color: #fff;">
+            <a><img th:src="@{/common/images/Ad1.png}" alt="취존한달식단광고"/></a>
+        </div>
+        <div class="column" style="background-color: #f1f1f1;">
+            <form method="post" th:action="@{/member/mypage}" autocomplete="off">
+                <input th:if="${redirectURL != null}" type="hidden" name="redirectURL" th:value="${redirectURL}">
+                <div class="rows">
+                    <input type="text" name="email" th:placeholder="#{이메일}" th:value="${session.email}">
+                    <div class="error" th:if="${session.NotBlank_email != null}" th:text="${session.NotBlank_email}"></div>
+                </div>
+                <div class="rows">
+                    <input type="password" name="password" th:placeholder="#{비밀번호}">
+                    <div class="error" th:if="${session.NotBlank_password != null}" th:text="${session.NotBlank_password}"></div>
+                </div>
+                <button type="submit" th:text="#{로그인}"></button>
+                <button type="submit" th:href="@{/member/join}" th:text="#{회원가입}"></button>
+                <div class="error" th:if="${session.globalError != null}" th:text="${session.globalError}"></div>
+            </form>
+
+
+        </div>
+    </div>
+    </body>
+</section>
+</html>

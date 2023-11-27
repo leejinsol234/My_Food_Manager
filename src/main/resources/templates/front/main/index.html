@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{front/layouts/main}">
+<section layout:fragment="content" class="main_page2">
+    <div class="row layout_width">
+        <div class="column">
+            <a><img th:src="@{/common/images/Ad2.png}" alt="취존한달식단광고2"/></a>
+        </div>
+        <div class="column">
+            <div class="btn_grp_survey">
+                <a th:href="@{/survey}" class="btn1" th:text="#{설문하기}"></a>
+            </div>
+            <div class="btn_grp">
+                <a th:href="@{/mypage}" class="btn1" th:text="#{마이페이지}"></a>
+            </div>
+            <div class="btn_grp">
+                <a th:href="@{/member/login}" class="btn1" th:text="#{로그아웃}"></a>
+            </div>
+
+
+        </div>
+    </div>
+
+</section>
+</html>

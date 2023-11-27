@@ -1,0 +1,48 @@
+/** 사이트 공통 */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+* { box-sizing: border-box; font-family: 'Noto Sans KR', sans-serif; color: #000; outline: none; }
+html { font-size: 13px; }
+ul, ol { list-style: none; margin:0; padding:0; }
+dl, dt, dd { margin:0; padding: 0; }
+a { text-decoration: none; }
+body { margin: 0; }
+img { border: 0; }
+
+
+.main_page .row { display: flex; background: #fff; margin: 0 auto !important; padding: 50px; }
+.main_page .row > .column { width: 0; flex-grow: 1; }
+.main_page .row > .column + .column { margin-left: 50px; }
+.main_page .row > .column:first-of-type img { display: block; width: 100%; }
+
+.main_page .row > .column:last-of-type { display: flex; align-items: center; justify-content: center; }
+
+
+.main_page .column .btn { width: 150px; height: 45px; padding: 0 10px; background-color: #86bd3e; border: 1px solid #86bd3e; border-radius: 3px; display: inline-block; margin: 0; line-height: 43px; text-align: center; }
+
+
+
+/** 기본 스타일 - 입력 */
+input[type='text'],
+input[type='number'],
+input[type='password'],
+input[type='email'],
+input[type='date'] { border: 1px solid #d5d5d5; width: 100%; height: 45px; padding: 0 10px; border-radius: 3px; margin-bottom: 3px;}
+textarea { border: 1px solid #d5d5d5; width: 100%; min-height: 150px; padding: 10px; resize: none; }
+select { border: 1px solid #d5d5d5; min-width: 150px; height: 45px; }
+.input_grp { display: flex; align-items:center; }
+.input_grp > * { margin-right: 5px; }
+
+/*index 스타일 */
+
+.main_page2 .row { display: flex; background: #fff; margin: 0 auto !important; padding: 50px; }
+.main_page2 .row > .column { width: 0; flex-grow: 1; }
+.main_page2 .row > .column + .column { margin-left: 50px; }
+.main_page2 .row > .column:first-of-type img { display: block; width: 100%; }
+
+.main_page2 .row > .column:last-of-type { display: flex;
+flex-direction: column; align-items: center; justify-content: center; }
+
+
+.main_page2 .column .btn_grp { width: 300px; height: 150px; padding: 0 10px; background-color: #86bd3e; border: 1px solid #86bd3e; border-radius: 3px; display: inline-block; margin: 15px; line-height: 43px; text-align: center; line-height: 150px; font-size: 3rem;}
+
+.main_page2 .column .btn_grp_survey{ width: 300px; height: 150px; padding: 0 10px; background-color: #B2CCFF; border: 1px solid #B2CCFF; border-radius: 3px; display: inline-block; margin: 15px; line-height: 43px; text-align: center; line-height: 150px; font-size: 3rem; }

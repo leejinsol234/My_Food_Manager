@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{front/layouts/survey}">
+
+<main layout:fragment="content" th:object="${survey}">
+    <div class="DDDD">
+    <br>
+    <h1 th:text="*{subject}"></h1>
+    <form name="frmApply" method="post" th:action="@{/survey/apply}"
+          autocomplete="off" target="ifrmProcess">
+        <input type="hidden" name="seq" th:value="*{seq}">
+        <section>
+            <div class="item_tit">
+                <div>영양소</div>
+                <div>항목</div>
+                <div>그렇다</div>
+            </div>
+            <div th:if="*{surveyItems != null && !surveyItems.isEmpty()}"
+                 th:each="ingredient, status : *{ingredients}"
+                 th:class="${'survey_page survey_page_' + status.index}"
+                 th:classappend="${status.index > 0} ? 'dn'">
+                <div class="rows">
+                    <div class ="dls1 ">
+                        <dt th:text="${@utils.ingredientTxt(ingredient)}"></dt>
+                    </div>
+                    <div class="dls2"
+                         th:block th:if="${survey.surveyItems.get(ingredient) != null}">
+                        <div th:each="item : ${survey.surveyItems.get(ingredient)}" class="checkbox-container">
+                            <div class="question-checkbox">
+                                <br>
+                                <div th:if="${item.question != null}" th:text="${item.question}"></div>
+                            </div>
+                            <div class="checkbox">
+                                <input type="checkbox" name="itemSeq" th:value="${item.seq}" th:id="${'itemSeq_' + item.seq}">
+                                <label th:for="${'itemSeq_' + item.seq}"></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="navi_grp">
+                <button type="button" class="navi prev dn">prev</button>
+                <button type="button" class="navi next">next</button>
+            </div>
+
+        </section>
+        <br>
+        <div class="btns" >
+            <button>다시하기</button>
+            <button >제출하기</button>
+        </div>
+    </form>
+    </div>
+</main>
+</html>

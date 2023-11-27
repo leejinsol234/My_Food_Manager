@@ -1,0 +1,50 @@
+  input[type='checkbox'] { display: none; }
+  input[type='checkbox']+label { min-height: 32px; line-height: 1; padding: 3px 0 3px 33px; background:url("../../common/images/chk-off.png") no-repeat left center; }
+  input[type='checkbox']:checked+label { background:url("../../common/images/chk-on.png") no-repeat left center; }
+
+    .DDDD{ width: 80%;
+           margin: 0 auto;}
+    img{ width: 350px;  height:100px; }
+    main{background:#86E57F ;height:800px }
+        h1{text-align: center;}
+        .item_tit { display: flex; }
+        .item_tit > div { text-align: center;background:gray; border: 1px solid black;}
+        .item_tit > div:nth-of-type(1) { width: 150px;}
+        .item_tit > div:nth-of-type(2) { flex-grow: 1;}
+        .item_tit > div:nth-of-type(3) { width: 150px;}
+
+        .rows { display: flex;}
+        .rows > div { text-align: center; }
+        .rows > div:nth-of-type(1) { width: 150px; border: 1px solid black}
+        .rows > div:nth-of-type(even) { flex-grow: 1; border: 1px solid black}
+        .rows > div:nth-of-type(3) { width: 150px;}
+
+        .btns {text-align: center;}
+        .btns > button {
+                background-color: skyblue;
+                color: black;
+                padding: 10px 30px;
+                border-radius: 12px;
+                }
+        .navi_grp {text-align: center;}
+        .navi_grp > button {
+                background-color: skyblue;
+                color: red;
+                padding: 10px 30px;
+                border-radius: 12px;
+                text-align: center;
+                }
+        .checkbox-container {
+                 display: flex;
+                 align-items: center;
+                 }
+        .question-checkbox {
+                 flex: 1;
+                 height:70px;
+                }
+        .checkbox {
+                margin-left: 1px;
+                width: 150px;
+                }
+        .dls1{ background:white }
+        .dls2{background:white }

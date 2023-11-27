@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <th:block th:fragment="common" th:object="${surveyForm}">
+        <table class="table-cols">
+            <tr>
+                <th>설문지 공개</th>
+                <td>
+                    <span>
+                        <input type="radio" name="show" value="true" th:field="*{show}" id="show_1">
+                        <label for="show_1">공개</label>
+                    </span>
+                    <span>
+                        <input type="radio" name="show" value="false" th:field="*{show}" id="show_2">
+                        <label for="show_2">미공개</label>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <th>설문 주제</th>
+                <td>
+                    <input type="text" name="subject" th:field="*{subject}">
+                    <div class="errors" th:each="err : ${#fields.errors('subject')}" th:text="${err}"></div>
+                </td>
+            </tr>
+            <tr>
+                <th>질문 등록</th>
+                <td>
+                    <span class="sbtn add_qs"><i class="xi-plus">추가하기</i></span>
+                </td>
+            </tr>
+            <tbody id="question_html">
+                <tr th:if="*{items != null && !items.isEmpty()}" th:each="ingredient, status : *{ingredients}"  th:id="${'question_box_' + status.index}">
+                    <th>
+                        <input type="hidden" name="qNum" th:value="${status.index}">
+                        <select th:name="${'ingredient_' + status.index}">
+                            <option th:each="in : ${selections}" th:text="${in[1]}" th:value="${in[0]}" th:selected="${in[0] == ingredient}"></option>
+                        </select>
+
+                        <button th:if="${status.index > 0}" type="button" class="remove_qs sbtn mt5" th:data-num="${status.index}"><i class="xi-minus"></i>제거하기</button>
+                    </th>
+                    <td>
+                        <div class="mb10">
+                            <span class="sbtn add" th:data-num="${status.index}"><i class="xi-plus"></i>문항 추가</span>
+                            <span class="sbtn remove" th:data-num="${status.index}"><i class="xi-minus"></i>문항 제거</span>
+                        </div>
+                        <div class="questions">
+                            <input th:if="${surveyForm.items.get(ingredient) != null}" th:each="item : ${surveyForm.items.get(ingredient)}" type="text" th:name="${'question_' + status.index}" placeholder="문항" th:value="${item.question}" class="mb5">
+                        </div>
+                    </td>
+                </tr>
+                <tr th:unless="*{items != null && !items.isEmpty()}" id="question_box_0">
+                    <th>
+                        <input type="hidden" name="qNum" value="0">
+                        <select name="ingredient_0">
+                            <option th:each="ingredient : ${selections}" th:text="${ingredient[1]}" th:value="${ingredient[0]}"></option>
+                        </select>
+
+                    </th>
+                    <td>
+                        <div class="mb10">
+                            <span class="sbtn add" data-num="0"><i class="xi-plus"></i>문항 추가</span>
+                            <span class="sbtn remove" data-num="0"><i class="xi-minus"></i>문항 제거</span>
+                        </div>
+                        <div class="questions">
+                        <input type="text" name="question_0" placeholder="문항">
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <script type="text/html" id="tpl">
+            <table>
+            <tr id="question_box_[qNum]">
+                <th>
+                    <input type="hidden" name="qNum" value="[qNum]">
+                    <select name="ingredient_[qNum]">
+                        <option th:each="ingredient : ${selections}" th:text="${ingredient[1]}" th:value="${ingredient[0]}"></option>
+                    </select>
+                    <button type="button" class="remove_qs sbtn mt5" data-num="[qNum]"><i class="xi-minus"></i>제거하기</button>
+                </th>
+                <td>
+                    <div class="mb10">
+                        <span class="sbtn add" data-num="[qNum]"><i class="xi-plus"></i>문항 추가</span>
+                        <span class="sbtn remove" data-num="[qNum]"><i class="xi-minus"></i>문항 제거</span>
+                    </div>
+                    <div class="questions">
+                        <input type="text" name="question_[qNum]" placeholder="문항">
+                    </div>
+                </td>
+            </tr>
+            </table>
+        </script>
+        <script type="text/html" id="tpl_each">
+            <input type="text" name="question_[qNum]" placeholder="문항" class="mt5">
+        </script>
+    </th:block>
+</html>

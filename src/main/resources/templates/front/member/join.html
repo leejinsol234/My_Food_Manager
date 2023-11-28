@@ -26,8 +26,11 @@
         </div>
 
         <div class="row">
-            <label><input type="checkbox" name="gender" value="man">남자</label>
-            <label><input type="checkbox" name="gender" value="woman">여자</label>
+            <input type="radio" name="gender" value="MALE" />
+            <label>남자</label>
+
+            <input type="radio" name="gender" value="FEMALE" />
+            <label>여자</label>
         </div>
 
         <div class="row">
@@ -35,7 +38,7 @@
             <div class="error" th:each="err : ${#fields.errors('mobile')}" th:text="${err}"></div>
         </div>
 
-        <div class="rows">
+        <div class="row">
             <pre class="terms" th:text="${@siteConf.get('joinTerms')}"></pre>
             <input type="checkbox" name="agree" value="true" id="agree" th:field="*{agree}">
             <label for="agree" th:text="#{회원가입_약관에_동의합니다.}"></label>

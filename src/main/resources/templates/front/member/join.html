@@ -4,7 +4,9 @@
       layout:decorate="~{front/layouts/join}">
 
 <main layout:fragment="content" class="join_page">
-    <form method="post" th:action="@{/member/join}" autocomplete="off" th:object="${requestJoin}">
+
+    <form class="join_page_inside" method="post" th:action="@{/member/join}" autocomplete="off" th:object="${requestJoin}">
+        <h1>회원가입</h1>
         <div class="row">
             <input type="email" name="email" th:placeholder="#{이메일}" th:field="*{email}">
             <div class="error" th:each="err : ${#fields.errors('email')}" th:text="${err}"></div>
@@ -23,26 +25,28 @@
             <div class="error" th:each="err : ${#fields.errors('userNm')}" th:text="${err}"></div>
         </div>
 
-        <div class="genderCheck">
-            <label><input type="checkbox" name="gender" value="man">남자</label>
-            <label><input type="checkbox" name="gender" value="woman">여자</label>
+        <div class="row">
+            <input type="radio" name="gender" value="MALE" />
+            <label>남자</label>
+
+            <input type="radio" name="gender" value="FEMALE" />
+            <label>여자</label>
         </div>
-
-
 
         <div class="row">
             <input type="text" name="mobile" th:placeholder="#{휴대전화번호}" th:field="*{mobile}">
             <div class="error" th:each="err : ${#fields.errors('mobile')}" th:text="${err}"></div>
         </div>
 
-        <div class="rows">
+        <div class="row">
             <pre class="terms" th:text="${@siteConf.get('joinTerms')}"></pre>
             <input type="checkbox" name="agree" value="true" id="agree" th:field="*{agree}">
             <label for="agree" th:text="#{회원가입_약관에_동의합니다.}"></label>
         </div>
-
-        <button type="submit" th:text="#{회원가입}"></button>
-
+        <div>
+            <button type="reset" class="resetButton">다시입력</button>
+        <button type="submit" class="joinButton" th:text="#{회원가입}"></button>
+        </div>
     </form>
 </main>
 

@@ -19,6 +19,8 @@ public class RequestJoin {
     @NotBlank
     private String userNm;
 
+    private String gender; // 성별
+
     private String mobile;
 
     @AssertTrue

@@ -2,6 +2,7 @@ package org.myfm.team.models.member;
 
 
 import lombok.RequiredArgsConstructor;
+import org.myfm.team.commons.constants.Gender;
 import org.myfm.team.commons.constants.MemberType;
 import org.myfm.team.controllers.members.dtos.RequestJoin;
 import org.myfm.team.controllers.members.validators.JoinValidator;
@@ -37,6 +38,7 @@ public class MemberSaveService {
                 .userNm(form.getUserNm())
                 .mobile(form.getMobile())
                 .mtype(MemberType.USER)
+                .gender(Gender.valueOf(form.getGender()))
                 .password(hash)
                 .build();
 

@@ -18,6 +18,5 @@ public class MemberDeleteService {
         memberRepository.delete(member);
         memberRepository.flush();
 
-        // ㄴㅇㄹㄴㅇㄹ
     }
 }

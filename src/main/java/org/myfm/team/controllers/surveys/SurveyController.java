@@ -31,6 +31,8 @@ public class SurveyController implements ScriptExceptionProcess {
     private final HttpServletRequest request;
     private final MemberUtil memberUtil;
 
+    private final MemberUtil memberUtil;
+
     @GetMapping("/{seq}")
     public String apply(@PathVariable Long seq, Model model) {
         commonProcess("apply", model);
@@ -54,6 +56,7 @@ public class SurveyController implements ScriptExceptionProcess {
 
     @GetMapping("/result/{seq}")
     public String result(@PathVariable Long seq, Model model) {
+
         String username = memberUtil.getMember().getUserNm();
 
         commonProcess("result", model);
@@ -64,6 +67,7 @@ public class SurveyController implements ScriptExceptionProcess {
         model.addAttribute("data", data);
         model.addAttribute("ingredients", ingredients);
         model.addAttribute("username", username);
+
 
         return utils.tpl("survey/result");
 

@@ -51,4 +51,4 @@
 ![003](https://github.com/leejinsol234/JavaScript_study/assets/140874690/535cd476-3576-4a1c-a0b2-13c3efece429)
 
 설문 결과 화면
-![004](https://github.com/leejinsol234/JavaScript_study/assets/140874690/3a271ad8-3d4a-4e08-ad8b-85b49fca0c55)
+![004](https://github.com/leejinsol234/My_Food_Manager/assets/140874690/0190aa62-1eba-4382-a0cb-3be94f69acf4)

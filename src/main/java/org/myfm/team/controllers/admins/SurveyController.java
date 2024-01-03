@@ -4,6 +4,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.myfm.team.commons.ListData;
+import org.myfm.team.commons.MemberUtil;
 import org.myfm.team.commons.ScriptExceptionProcess;
 import org.myfm.team.commons.constants.Ingredient;
 import org.myfm.team.commons.exceptions.AlertException;
@@ -32,6 +33,7 @@ public class SurveyController implements ScriptExceptionProcess {
     private final SurveySaveService saveService;
     private final SurveyInfoService infoService;
     private final SurveyDeleteService deleteService;
+
 
     /**
      * 설문지 목록

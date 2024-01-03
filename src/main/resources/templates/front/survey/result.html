@@ -7,7 +7,11 @@
 <main layout:fragment="content">
     <h1>결과확인</h1>
 
+    <div id="result_title">
+
+
     <div sec:authorize="isAuthenticated()">
+
         <span th:text="${username}"></span>님의 영양소 분석 결과
     </div>
     <table>

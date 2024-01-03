@@ -29,6 +29,7 @@ public class SurveyController implements ScriptExceptionProcess {
     private final ResultInfoService resultInfoService;
 
     private final HttpServletRequest request;
+    private final MemberUtil memberUtil;
 
     private final MemberUtil memberUtil;
 

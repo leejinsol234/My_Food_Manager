@@ -31,8 +31,6 @@ public class SurveyController implements ScriptExceptionProcess {
     private final HttpServletRequest request;
     private final MemberUtil memberUtil;
 
-    private final MemberUtil memberUtil;
-
     @GetMapping("/{seq}")
     public String apply(@PathVariable Long seq, Model model) {
         commonProcess("apply", model);
